@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="title">
+        NET<span style="color: #fe0000">F<small>LIX</small></span>
+      </h1>
+      <p id="description">
+        Thank you for signing up at Netflix.Tell us more about your self
+      </p>
+      <p>This is a variable from app.py: {{number}}</p>
+      <form
+        action="result.html"
+        id="survey-form"
+        name="myForm"
+        onsubmit="return submitForm()"
+      >
+        <div class="box">
+          <label for="fname">Name</label><br />
+          <input
+            type="text"
+            id="fname"
+            name="name"
+            placeholder="Enter your name"
+            value=""
+          /><br />
+        </div>
+        <div class="box">
+          <label for="age">Age</label><br />
+          <input type="text" id="age" name="age" placeholder="Age" /><br />
+        </div>
+        <div class="box">
+          <label for="email">Email</label><br />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+          /><br />
+        </div>
+        <div class="box">
+          <label for="content">Content type</label><br />
+          <select name="content" id="content">
+            <option value="narcos">Narcos</option>
+            <option value="shooter">Shooter</option>
+            <option value="series" selected>Series</option>
+            <option value="ourplanet">Our Planet</option>
+            <option value="lucifer">Lucifer</option>
+            <option value="tallgirl">Tallgirl</option></select
+          ><br />
+        </div>
+        <div class="box">
+          <label for="movie">Movie type</label><br />
+          <input
+            type="checkbox"
+            id="movie"
+            name="movie"
+            value="comedy"
+          />Comedy<br />
+          <input
+            type="checkbox"
+            id="movie1"
+            name="movie"
+            value="action"
+          />Action<br />
+          <input
+            type="checkbox"
+            id="movie2"
+            name="movie"
+            value="romance"
+            checked
+          />Romance<br />
+        </div>
+        <div class="box">
+          <label for="gender">Gender</label><br />
+          <input type="radio" name="gender" value="male" />Male<br />
+          <input type="radio" name="gender" value="female" />Female<br />
+          <input type="radio" name="gender" value="other" />Other<br />
+        </div>
+        <div class="box">
+          <label for="comments">Feed back</label><br />
+          <textarea
+            name="comments"
+            id="comments"
+            placeholder="Any comment"
+          ></textarea>
+        </div>
+        <div id="submit"><input type="submit" value="Submit" /></div>
+      </form>
+    </div>
+    <p id="submittedinfo"></p>
+    <script>
+      function submitForm(event) {
+        let name1 = document.getElementById("fname").value;
+        let name2 = document.getElementById("age").value;
+        new_element = document.getElementById("submittedinfo");
+        new_element.innerHTML = name1;
+        if (name2 == "") {
+          alert("Name must be filled out");
+          return false;
+        }
+        event.preventDefault();
+      }
+    </script>
+  </body>
+</html>

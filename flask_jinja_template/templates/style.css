@@ -1,0 +1,74 @@
+body {
+  background-image: url(netflix.png);
+  color: white;
+}
+#container {
+  margin: auto;
+  background-color: rgba(46, 49, 49, 0.5);
+}
+#title {
+  /* font-size: 30px;
+  height: 20px; */
+  text-align: center;
+  letter-spacing: 2px;
+  /* font-family: sans-serif; */
+  /* font-style: normal; */
+  font-weight: 700;
+
+  font-family: "Passion One", cursive;
+  /* font-family: "Roboto", sans-serif; */
+}
+#description {
+  font-size: 16px;
+  font-style: italic;
+  font-family: sans-serif;
+  text-align: center;
+}
+#survey-form {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 30%;
+  margin: auto;
+}
+.box {
+  padding-top: 10px;
+  padding-left: 30px;
+}
+#name,
+#age,
+#email,
+#content {
+  margin-top: 10px;
+  width: 70%;
+  height: 25px;
+  padding-left: 10px;
+}
+#content {
+  height: 20px;
+}
+#comments {
+  margin-top: 10px;
+  width: 70%;
+  height: 50px;
+  padding-left: 10px;
+}
+#submit input {
+  border: white;
+  border-radius: 21px;
+  width: 150px;
+  height: 42px;
+  color: white;
+  background-color: #fe0000;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+#submit {
+  text-align: center;
+}
+#submit input:hover {
+  background-color: white;
+  color: black;
+  transition: 0.5s;
+  transform: scale(1.1);
+}
