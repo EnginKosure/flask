@@ -11,7 +11,7 @@ Description: This template creates an EC2 instance which enables SSH connection.
 # Conditions:
 
 Resources:
-  EK_CFInstance:
+  EK_CFInstance: #We can configure this part
     Type: AWS::EC2::Instance
     Properties:
       # AdditionalInfo: String
@@ -31,7 +31,7 @@ Resources:
       # HostId: String
       # HostResourceGroupArn: String
       # IamInstanceProfile: String
-      ImageId: String
+      ImageId: ami-02354e95b39ca8dec
       # InstanceInitiatedShutdownBehavior: String
       InstanceType: t2.micro
       # Ipv6AddressCount: Integer
@@ -58,7 +58,7 @@ Resources:
       # SubnetId: String
       Tags:
         - Key: Name
-          Value: EK_CFInstance
+          Value: EK_CFInstanceTag #We can configure this part
       # Tenancy: String
       # UserData: String
       # Volumes:
