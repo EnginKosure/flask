@@ -1,0 +1,68 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: This template creates an EC2 instance which enables SSH connection.
+
+# Parameters:
+
+# Metadata:
+
+# Mappings:
+
+# Conditions:
+
+Resources:
+  EK_CFInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      # AdditionalInfo: String
+      # Affinity: String
+      # AvailabilityZone: String
+      # BlockDeviceMappings:
+      #   - BlockDeviceMapping
+      # CpuOptions: CpuOptions
+      # CreditSpecification: CreditSpecification
+      # DisableApiTermination: Boolean
+      # EbsOptimized: Boolean
+      # ElasticGpuSpecifications:
+      #   - ElasticGpuSpecification
+      # ElasticInferenceAccelerators:
+      #   - ElasticInferenceAccelerator
+      # HibernationOptions: HibernationOptions
+      # HostId: String
+      # HostResourceGroupArn: String
+      # IamInstanceProfile: String
+      ImageId: String
+      # InstanceInitiatedShutdownBehavior: String
+      InstanceType: t2.micro
+      # Ipv6AddressCount: Integer
+      # Ipv6Addresses:
+      #   - InstanceIpv6Address
+      # KernelId: String
+      KeyName: String
+      # LaunchTemplate: LaunchTemplateSpecification
+      # LicenseSpecifications:
+      #   - LicenseSpecification
+      # Monitoring: Boolean
+      # NetworkInterfaces:
+      #   - NetworkInterface
+      # PlacementGroupName: String
+      # PrivateIpAddress: String
+      # RamdiskId: String
+      # SecurityGroupIds:
+      #   - String
+      SecurityGroups:
+        - String
+      # SourceDestCheck: Boolean
+      # SsmAssociations:
+      #   - SsmAssociation
+      # SubnetId: String
+      Tags:
+        - Key: Name
+          Value: EK_CFInstance
+      # Tenancy: String
+      # UserData: String
+      # Volumes:
+      #   - Volume
+# Transform:
+
+# Outputs:
