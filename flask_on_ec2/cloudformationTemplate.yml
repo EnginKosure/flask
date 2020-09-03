@@ -11,7 +11,7 @@ Description: This template creates an EC2 instance which enables SSH connection.
 # Conditions:
 
 Resources:
-  EK_CFInstance: #We can configure this part
+  EKCFInstance: #We can configure this part
     Type: AWS::EC2::Instance
     Properties:
       # AdditionalInfo: String
@@ -38,7 +38,7 @@ Resources:
       # Ipv6Addresses:
       #   - InstanceIpv6Address
       # KernelId: String
-      KeyName: String
+      KeyName: enter-cloudformationdemo-kp
       # LaunchTemplate: LaunchTemplateSpecification
       # LicenseSpecifications:
       #   - LicenseSpecification
@@ -51,14 +51,14 @@ Resources:
       # SecurityGroupIds:
       #   - String
       SecurityGroups:
-        - String
+        - engin-cloudformation-demo
       # SourceDestCheck: Boolean
       # SsmAssociations:
       #   - SsmAssociation
       # SubnetId: String
       Tags:
         - Key: Name
-          Value: EK_CFInstanceTag #We can configure this part
+          Value: ekcinstancetag #We can configure this part
       # Tenancy: String
       # UserData: String
       # Volumes:
