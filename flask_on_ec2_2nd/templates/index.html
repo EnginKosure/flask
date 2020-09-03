@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google-landing-page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="images/gfavicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header-left">
+        <ul>
+          <li>About</li>
+          <li>Store</li>
+        </ul>
+      </nav>
+      <nav class="header-right">
+        <ul>
+          <li>
+            <a
+              class="gb_g"
+              data-pid="23"
+              href="https://mail.google.com/mail/?tab=rm&amp;ogbl"
+              target="_top"
+              >Gmail</a
+            >
+          </li>
+          <li>
+            <a
+              class="gb_g"
+              data-pid="2"
+              href="https://www.google.be/imghp?hl=en&amp;tab=ri&amp;ogbl"
+              target="_top"
+              >Images</a
+            >
+          </li>
+          <li>
+            <a href="#" target="_blank" id="icon"
+              ><img src="./images/icon-menu.jpg" alt="icon-menu" width="30"
+            /></a>
+          </li>
+          <li><button id="sign-in">Sign In</button></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="searchbar">
+      <img
+        class="google_icon"
+        src="./images/googlelogo.png"
+        alt="googlelogo"
+        width="200"
+      />
+
+      <div class="search">
+        <img
+          id="search-icon"
+          src="./images/magnifying_glass.jpg"
+          alt=" search_icon"
+          width="35"
+        />
+        <input
+          type="search"
+          name="search"
+          id="search-input"
+          autocomplete="off"
+          spellcheck="false"
+          aria-live="polite"
+          placeholder="Search Google or type a URL"
+        />
+        <img
+          id="mic-icon"
+          src="./images/google_microphone.png"
+          alt="microphne_icon"
+          width="13"
+        />
+      </div>
+
+      <div class="btn-cont">
+        <button id="btn1" type="button" name="button">Google Search</button>
+        <button id="btn2" type="button" name="button">I'm Feeling Lucky</button>
+      </div>
+      <p>
+        Other Languages you can use Google:
+        <a href="#" target="_blank">English</a>
+      </p>
+    </div>
+
+    <footer>
+      <p>Turkey</p>
+      <div id="footer-nav">
+        <nav class="footer-left">
+          <a href="#">Advertising</a>
+          <a href="#">Business</a>
+          <a href="#">How Search Works</a>
+        </nav>
+        <nav class="footer-right">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Settings</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      var fixed = document.querySelector("footer"),
+        distanceFromTop = fixed.getBoundingClientRect().top;
+      fixed.style.top = distanceFromTop + "px";
+      fixed.style.bottom = "auto";
+    </script>
+  </body>
+</html>
