@@ -9,6 +9,12 @@ def head():
     return render_template('index.html', message=first)
 
 
+@app.route('/names')
+def for_loop():
+    names = ['John', 'Marry', 'Nancy', 'Dirk']
+    return render_template('names.html', names=names)
+
+
 if __name__ == '__main__':
-    # app.run(debug=True)  # for localhost
-    app.run(host='0.0.0.0', port=80)  # For production
+    # app.run(host='0.0.0.0', port=80)  # For production
+    app.run(debug=True)
