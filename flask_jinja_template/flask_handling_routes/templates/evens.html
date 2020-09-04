@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evens</title>
+  </head>
+  <body>
+    <h1>Even numbers</h1>
+    <ul>
+      {% for x in range(11) if not x%2 %}
+      <li>Even numbers: {{x}}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

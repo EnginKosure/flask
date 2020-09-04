@@ -65,5 +65,10 @@ def list10():
     return render_template('list10.html')
 
 
+@app.route('/evens')
+def evens():
+    return render_template('evens.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
