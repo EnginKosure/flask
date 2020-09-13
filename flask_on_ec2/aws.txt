@@ -1,0 +1,106 @@
+# key lerin oldugu klasorde terminal ac.
+cd /Documents/aws_keys
+
+# Bir defaya mahsus key e sadece okuma yetkisi tanimlamak gerekiyor
+sudo chmod 400 keyname.pem
+#linux makinalar icin ec2-user@   ubuntu makinalar icin ubuntu@ vs
+ssh -i keyname.pem ec2-user@instanceIP 
+# update
+sudo yum update -y
+# Apache server icin:
+sudo yum install httpd -y
+# start the server
+sudo systemctl start httpd
+# to check the status of the server
+sudo systemctl status httpd
+# stop edilen instance in startta tekrar ayni ayarlarda acilmasi icin:
+sudo systemctl enable httpd
+
+#sonra herhangi bir browser adres satirina instance in IP adresini yapistiriyoruz
+#Cikan sayfada sag tarafta /var/www/html/  ya gidersen bu sayfayi customize edebilirsin yaziyor. 
+
+cd /var/www/html/
+
+sudo chmod -R 777 /var/www/html/
+# Artik icine dosya ekleyebiliriz. 
+touch index.html
+#sonra bunu acip degistirebiliriz
+vim index.html
+#sonra sayfayi refresh yaptigimizda apache server sayfasinin bizim html icerigi ile degistigini goruruz.
+
+
+####USER DATA SCRIPT####
+###Bunda sudo ya gerek yok, zaten roottayiz. 
+#Asagidaki satir, bu  komutun bash te yazildigini tanitir.(.sh uzantili bir dosya icine yazilir genelde)
+#Sonrasinda bir satir bosluk birakmak gerekir.
+#! /bin/bash
+
+#update os
+yum update -y
+#install apache server
+yum install -y httpd
+#get date and time of server
+DATE_TIME=`date`
+#create a custom index.html file
+echo "<html>
+<head>
+    <title>My First Web Server</title>
+</head>
+<body>
+<h1>My first apache web server</h1>
+<p>This instance is created at <b>$DATE_TIME</b></p>
+</body>
+
+</html>" > /var/www/html/index.html
+#start apache server
+systemctl start httpd
+systemctl enable httpd
+
+
+#####NGINX SERVER ICIN#####
+#Buraya kadar ayni
+ssh -i keyname.pem ec2-user@instanceIP 
+# update
+sudo yum update -y
+
+# nginx paketini kurmak icin yum yerine amazon-linux-extras installer paketi kullaniliyor!!!
+sudo amazon-linux-extras install nginx1.12 -y
+sudo systemctl start nginx
+sudo systemctl status nginx
+
+#Sonra prowser a instance ip yi yapistirdik. Acilan sayfadaki yerden html i customize yapacagiz
+cd /usr/share/nginx/html
+#ls ile kontrol et, icinde 3 adet dosya var
+# 404.html  50x.html  index.html
+#Bu dosyada islem yapabilmek icin once yetkilendirme yapmamiz lazim:
+sudo chmod -R 777 /usr/share/nginx/html
+#Sonra index.html i silip yerine kendi icerigimizi yukleyebiliriz.
+#Bu sefer de dosyayi webden cekelim.
+#Github sayfamizdan yayinlayacagimiz html in raw halinin adres satirindaki karsiligini kopyaliyoruz 
+# ve wget komutu ile asagidaki gibi kullaniyoruz.
+wget https://raw.githubusercontent.com/EnginKosure/VTM-Nieuws/master/index.html
+
+###NGINX SERVER WITH USER DATA###
+#! /bin/bash
+
+yum update -y
+amazon-linux-extras install nginx1.12
+#Asagidaki chkconfig komutu aslinda eskidi, genelde systemctl start komutu kullanilir.
+chkconfig nginx on 
+cd /usr/share/nginx/html
+#Bu sefer yetkilendirmeyi -R 777 yerine boyle verdik. Ikisi de olur 
+chmod o+w /usr/share/nginx/html
+#Cekmek istedigin web sayfasi raw adresi
+wget https://raw.githubusercontent.com/EnginKosure/VTM-Nieuws/master/index.html
+#Asagidaki komut da artik cok kullanilmiyor. Yerine systemctl start nginx daha yaygin
+service nginx start
+
+
+
+#####NGINX BAZ USER DATA ILE YUKLEME  KOMUTLARI###
+#! /bin/bash
+
+yum update -y
+amazon-linux-extras install nginx1.12
+systemctl enable nginx
+systemctl start nginx
