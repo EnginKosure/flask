@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    span {
+      color: purple;
+      display: inline-block;
+      position: relative;
+    }
+    span:first-letter {
+      text-transform: uppercase;
+      font-size: 50px;
+    }
+  </style>
+  <body>
+    <p><span>clarusway</span> web design</p>
+
+    <script>
+      const el = document.querySelector("span");
+      console.log(el);
+      const text = el.innerHTML;
+      console.log(text);
+      const last = text.substring(text.length - 1);
+      console.log(last);
+      el.innerHTML = text.replace(text.substring(text.length - 1), "Y");
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
